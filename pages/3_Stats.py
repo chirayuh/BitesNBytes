@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 try:
 	app = firebase_admin.get_app()
 except ValueError:
-	cred = credentials.Certificate("bitesbytes-f2302-e345b2788029.json")
+	firebase_creds = st.secrets["firebase"]
+	cred = credentials.Certificate(firebase_creds)
 	firebase_admin.initialize_app(cred)
 db = firestore.client()
 
