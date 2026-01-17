@@ -22,7 +22,7 @@ LOGGER = get_logger(__name__)
 
 # Load Firebase credentials from Streamlit secrets
 if not firebase_admin._apps:
-    firebase_creds = st.secrets["firebase"]
+    firebase_creds = dict(st.secrets["firebase"])
     cred = credentials.Certificate(firebase_creds)
     firebase_admin.initialize_app(cred)
 

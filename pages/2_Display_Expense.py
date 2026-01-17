@@ -6,7 +6,7 @@ from firebase_admin import credentials, firestore
 try:
     app = firebase_admin.get_app()
 except ValueError:
-    firebase_creds = st.secrets["firebase"]
+    firebase_creds = dict(st.secrets["firebase"])
     cred = credentials.Certificate(firebase_creds)
     firebase_admin.initialize_app(cred)
 db = firestore.client()
